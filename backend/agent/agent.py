@@ -92,9 +92,12 @@ Answer clearly and concisely.
 """
 
 async def run_agent(user_message: str) -> str:
+    import datetime
+    today_str = datetime.date.today().isoformat()
+    
     logger.info("Researcher starting Tool Execution loop.")
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT.strip()},
+        {"role": "system", "content": f"{SYSTEM_PROMPT.strip()}\n\nCURRENT DATE: {today_str}"},
         {"role": "user", "content": user_message}
     ]
 
