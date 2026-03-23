@@ -5,6 +5,7 @@ from openai import AsyncOpenAI
 from .agent import run_agent as researcher_agent
 
 logger = logging.getLogger(__name__)
+
 load_dotenv()
 client = AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
